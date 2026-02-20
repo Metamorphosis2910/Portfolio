@@ -91,7 +91,7 @@ const [theme, setTheme] = useState<"light" | "dark">(() => getInitialTheme());
                 key={item.id}
                 href={item.href}
                 onClick={(e) => onNavClick(e, item)}
-                className="text-sm text-zinc-500 no-underline transition-colors hover:text-zinc-900 hover:underline dark:text-zinc-400 dark:hover:text-zinc-50"
+                className="text-sm text-zinc-500 no-underline transition-colors hover:text-zinc-900  dark:text-zinc-400 dark:hover:text-zinc-50"
               >
                 {item.label}
               </a>
@@ -128,20 +128,18 @@ const [theme, setTheme] = useState<"light" | "dark">(() => getInitialTheme());
               <div className="mb-4">
                 <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-600 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
                   <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                  Available for new opportunities
+                  Exploring impactful opportunities
                 </span>
               </div>
 
-              <h1 className="max-w-3xl text-5xl font-medium tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-6xl">
-                Hi, My name is Arthur
+              <h1 className="max-w-4xl text-4xl font-medium tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-6xl">
+                Hi, I’m Arthur
                 <br />
-                And i'm Frontend Developer
+                I build systems, not just interfaces.
               </h1>
 
-              <p className="mt-6 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                22-year-old frontend developer with 2 years of professional experience and leadership skills.
-                I build scalable web applications using React, Next.js, and TypeScript, and have successfully
-                led a 4-person development team as founder and team lead of fpzh.uz.
+              <p className="mt-6 max-w-2xl text-base leading-6 text-zinc-600 dark:text-zinc-400">
+                Frontend developer focused on scalable architecture, performance, and real product impact using React, Next.js, and TypeScript.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -278,7 +276,7 @@ function AboutSection() {
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
           {/* Left: text */}
-          <div className="space-y-7 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+          <div className="space-y-7 text-base leading-6 text-zinc-700 dark:text-zinc-300">
             <p>
               I&apos;m Mirzamatov Arthur, a 22-year-old passionate frontend developer with 2 years of
               professional experience building web applications. Currently pursuing my degree in
@@ -301,14 +299,17 @@ function AboutSection() {
           </div>
 
           {/* Right: cards */}
-          <div className="space-y-5">
+          <div className="space-y-3">
             <StatCard
               label="Experience"
               value="2 Years"
               sub="Frontend Development"
             />
-            <StatCard label="Projects" value="3" sub="Web Applications" />
+            <StatCard label="Projects" value="3 completed, 3 NDA" sub="Web Applications" />
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <StatCard label="Languages" value="B2+" sub="English Level" />
+            <StatCard label="Languages" value="Native" sub="Russian Level" />
+          </div>
           </div>
         </div>
       </div>
@@ -735,7 +736,24 @@ const items: ExperienceItem[] = [
     ],
     technologies: ["Bootstrap 4", "HTML5", "CSS3", "Go Language", "PostgreSQL", "Docker"],
   },
+  {
+    role: "Frontend Developer (NDA Project)",
+    company: "Confidential Product",
+    period: "2024 - 2025",
+    description:
+      "Worked on a commercial web platform under NDA, contributing to frontend architecture and feature development in a cross-functional team. Collaborated closely with backend engineers and designers to deliver production-ready features and improve overall system performance.",
+    achievements: [
+      "Developed and maintained scalable UI components using React and TypeScript",
+      "Implemented API integrations and handled complex state management",
+      "Improved performance and reduced unnecessary re-renders",
+      "Participated in code reviews and architectural discussions",
+      "Contributed to deployment and build optimization processes",
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "REST API", "Redux/Zustand", "Git"],
+  },
 ];
+
+
 
 
   return (
