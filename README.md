@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Portfolio — Arthur Mirzamatov
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Персональный сайт-портфолио frontend-разработчика: обо мне, навыки, опыт работы, проекты и контакты. Одностраничный лендинг с якорной навигацией, светлой/тёмной темой и скачиванием резюме в PDF.
 
-Currently, two official plugins are available:
+**Живой сайт:** https://metamorphosis2910.github.io/Portfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Стек
 
-## React Compiler
+- **React 19** + **TypeScript** — UI и типизация
+- **Vite 7** — сборка и dev-сервер
+- **Tailwind CSS 4** — стилизация (включая тёмную тему через класс `dark`)
+- **lucide-react** — иконки
+- **GitHub Actions + GitHub Pages** — автодеплой
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Структура проекта
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── index.html                  # HTML-каркас, точка входа Vite
+├── public/
+│   ├── resume.pdf              # Резюме (кнопка Download Resume)
+│   └── projects/               # Скриншоты проектов для карточек
+├── src/
+│   ├── main.tsx                # Монтирование React-приложения
+│   ├── App.tsx                 # Корневой компонент
+│   ├── pages/
+│   │   └── PortfolioLanding.tsx  # Композиция страницы из секций
+│   ├── components/
+│   │   ├── Header.tsx          # Шапка: меню + переключатель темы
+│   │   ├── Hero.tsx            # Первый экран: приветствие, CTA, соцсети
+│   │   ├── AboutSection.tsx    # Обо мне + карточки статистики
+│   │   ├── SkillsSection.tsx   # Навыки по категориям
+│   │   ├── ExperienceSection.tsx # Опыт работы
+│   │   ├── ProjectsSection.tsx # Карточки проектов
+│   │   ├── ContactSection.tsx  # Контакты + форма (mailto)
+│   │   ├── Footer.tsx          # Футер
+│   │   └── ui.tsx              # Мелкие переиспользуемые элементы
+│   ├── data/
+│   │   └── portfolio.ts        # Весь контент сайта (тексты, ссылки, навыки)
+│   └── lib/
+│       ├── theme.ts            # Логика светлой/тёмной темы
+│       └── utils.ts            # cx(), плавный скролл к секциям
+└── .github/workflows/deploy.yml  # Деплой на GitHub Pages
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Как редактировать контент
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Практически весь контент (навыки, проекты, опыт, контакты, путь к резюме) вынесен в [`src/data/portfolio.ts`](src/data/portfolio.ts) — компоненты менять не нужно:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Обновить резюме** — заменить `public/resume.pdf`
+- **Добавить проект** — дописать объект в массив `PROJECTS`, скриншот положить в `public/projects/`
+- **Изменить навыки/опыт** — отредактировать `SKILL_GROUPS` / `EXPERIENCE_ITEMS`
+- **Контакты и соцсети** — объект `CONTACTS`
+
+Тексты секции About находятся в `src/components/AboutSection.tsx`.
+
+## Запуск локально
+
+```bash
+npm install       # установить зависимости
+npm run dev       # dev-сервер с hot reload (http://localhost:5173/Portfolio/)
+npm run build     # production-сборка в dist/
+npm run preview   # локальный просмотр production-сборки
+npm run lint      # проверка ESLint
 ```
+
+## Деплой
+
+Сайт автоматически собирается и публикуется на GitHub Pages при каждом пуше в ветку `main` (workflow [`deploy.yml`](.github/workflows/deploy.yml)). База путей `/Portfolio/` задана в [`vite.config.ts`](vite.config.ts).
