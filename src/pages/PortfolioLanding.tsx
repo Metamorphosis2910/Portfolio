@@ -409,23 +409,23 @@ function ProjectsSection() {
         "A full-stack web application startup I founded and developed. Features user registration/authorization, database management, and adaptive cross-browser design. Built with modern backend technologies.",
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Go", "PostgreSQL", "Docker"],
       liveUrl: "https://fpzh.uz",
-      codeUrl: "https://github.com/Metamorphosis2910?tab=repositories",
+      codeUrl: "https://github.com/Leha23112004/fpzh_frame",
     },
     {
       title: "Multi-page Website",
       description:
         "A responsive static website showcasing adaptive cross-browser development skills. Features mobile-optimized design for all screen resolutions and clean, semantic markup.",
       tags: ["HTML5", "CSS3", "Responsive Design", "Cross-browser Compatibility"],
-      liveUrl: "https://example.com",
-      codeUrl: "https://github.com/Metamorphosis2910?tab=repositories",
+      liveUrl: "https://metamorphosis2910.github.io/5pages/",
+      codeUrl: "https://github.com/Metamorphosis2910/5pages",
     },
     {
       title: "Developer Portfolio (This Project)",
       description:
         "A modern, responsive portfolio website built with a clean component architecture. Features dark/light mode toggle and smooth section navigation.",
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Lucide React"],
-      liveUrl: "#",
-      codeUrl: "https://github.com/Metamorphosis2910?tab=repositories",
+      liveUrl: "https://metamorphosis2910.github.io/Portfolio/",
+      codeUrl: "https://github.com/Metamorphosis2910/Portfolio",
     },
   ];
 
@@ -739,7 +739,7 @@ const items: ExperienceItem[] = [
       "Delivered adaptive cross-browser design with mobile optimization",
       "Managed project using Docker for containerization and deployment",
     ],
-    technologies: ["Bootstrap 4", "HTML5", "CSS3", "Go Language", "PostgreSQL", "Docker"],
+    technologies: ["JavaScript", "TypeScript", "React", "Bootstrap 4", "HTML5", "CSS3", "Go Language", "PostgreSQL", "Docker"],
   },
   {
     role: "Frontend Developer (NDA Project)",
