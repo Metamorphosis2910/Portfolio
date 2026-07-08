@@ -397,6 +397,7 @@ type ProjectItem = {
   title: string;
   description: string;
   tags: string[];
+  image?: string;
   liveUrl?: string;
   codeUrl?: string;
 };
@@ -408,6 +409,7 @@ function ProjectsSection() {
       description:
         "A full-stack web application startup I founded and developed. Features user registration/authorization, database management, and adaptive cross-browser design. Built with modern backend technologies.",
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Go", "PostgreSQL", "Docker"],
+      image: `${import.meta.env.BASE_URL}projects/fpzh.png`,
       liveUrl: "https://fpzh.uz",
       codeUrl: "https://github.com/Leha23112004/fpzh_frame",
     },
@@ -416,6 +418,7 @@ function ProjectsSection() {
       description:
         "A responsive static website showcasing adaptive cross-browser development skills. Features mobile-optimized design for all screen resolutions and clean, semantic markup.",
       tags: ["HTML5", "CSS3", "Responsive Design", "Cross-browser Compatibility"],
+      image: `${import.meta.env.BASE_URL}projects/multipage.jpg`,
       liveUrl: "https://metamorphosis2910.github.io/5pages/",
       codeUrl: "https://github.com/Metamorphosis2910/5pages",
     },
@@ -424,6 +427,7 @@ function ProjectsSection() {
       description:
         "A modern, responsive portfolio website built with a clean component architecture. Features dark/light mode toggle and smooth section navigation.",
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Lucide React"],
+      image: `${import.meta.env.BASE_URL}projects/portfolio.png`,
       liveUrl: "https://metamorphosis2910.github.io/Portfolio/",
       codeUrl: "https://github.com/Metamorphosis2910/Portfolio",
     },
@@ -447,11 +451,19 @@ function ProjectsSection() {
               key={p.title}
               className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950"
             >
-              {/* image placeholder */}
-              <div className="flex h-44 items-center justify-center bg-zinc-100 dark:bg-zinc-900">
-                <div className="flex items-center gap-2 text-zinc-400">
-                  <ImageIcon size={28} />
-                </div>
+              <div className="flex h-44 items-center justify-center overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={`${p.title} screenshot`}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="flex items-center gap-2 text-zinc-400">
+                    <ImageIcon size={28} />
+                  </div>
+                )}
               </div>
 
               <div className="p-6">
