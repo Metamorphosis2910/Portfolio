@@ -3,7 +3,6 @@ import {
   ChevronRight,
   Download,
   Github,
-  Linkedin,
   Mail,
   Moon,
   Sun,
@@ -163,8 +162,8 @@ const [theme, setTheme] = useState<"light" | "dark">(() => getInitialTheme());
                 </a>
 
                 <a
-                  href="/resume.pdf"
-                  download
+                  href={`${import.meta.env.BASE_URL}resume.pdf`}
+                  download="Мирзаматов Артур Алимович.pdf"
                   className={cx(
                     "no-underline",
                     "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium",
@@ -179,7 +178,7 @@ const [theme, setTheme] = useState<"light" | "dark">(() => getInitialTheme());
 
               <div className="mt-7 flex items-center justify-center gap-5 text-zinc-500 dark:text-zinc-400">
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/Metamorphosis2910"
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label="GitHub"
@@ -188,13 +187,13 @@ const [theme, setTheme] = useState<"light" | "dark">(() => getInitialTheme());
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/"
+                  href="https://t.me/vktdrkstdt"
                   target="_blank"
                   rel="noreferrer noopener"
-                  aria-label="LinkedIn"
+                  aria-label="Telegram"
                   className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-50"
                 >
-                  <Linkedin size={20} />
+                  <Send size={20} />
                 </a>
                 <a
                   href="mailto:mir-hank@yandex.ru"
@@ -233,13 +232,13 @@ const [theme, setTheme] = useState<"light" | "dark">(() => getInitialTheme());
         <Github size={20} />
       </a>
       <a
-        href="https://www.linkedin.com/"
+        href="https://t.me/vktdrkstdt"
         target="_blank"
         rel="noreferrer noopener"
-        aria-label="LinkedIn"
+        aria-label="Telegram"
         className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-50"
       >
-        <Linkedin size={20} />
+        <Send size={20} />
       </a>
       <a
         href="mailto:mir-hank@yandex.ru"
@@ -281,7 +280,7 @@ function AboutSection() {
               I&apos;m Mirzamatov Arthur, a 22-year-old passionate frontend developer with 2 years of
               professional experience building web applications. Currently pursuing my degree in
               &quot;Экономика предприятий и организаций&quot; at РЭУ Им. Плеханова in Moscow, I
-              specialize in React, Next.js, TypeScript, and Vue.js.
+              specialize in React, Next.js, TypeScript, and Node.js.
             </p>
 
             <p>
@@ -292,9 +291,10 @@ function AboutSection() {
             </p>
 
             <p>
-              With B2+ English proficiency and experience working with international teams, I&apos;m
+              With B2 English proficiency and experience working with international teams, I&apos;m
               always excited about new challenges and opportunities to work on innovative projects
-              that make a real impact.
+              that make a real impact. Currently I&apos;m studying backend development to become a
+              full-fledged fullstack engineer.
             </p>
           </div>
 
@@ -307,7 +307,7 @@ function AboutSection() {
             />
             <StatCard label="Projects" value="3 completed, 3 NDA" sub="Web Applications" />
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <StatCard label="Languages" value="B2+" sub="English Level" />
+            <StatCard label="Languages" value="B2" sub="English Level" />
             <StatCard label="Languages" value="Native" sub="Russian Level" />
           </div>
           </div>
@@ -326,27 +326,27 @@ function SkillsSection() {
   const groups: SkillGroup[] = [
     {
       title: "Frontend Frameworks",
-      tags: ["React", "Vite", "Bootstrap 4.1"],
+      tags: ["React", "Next.js", "Vite", "Bootstrap 4.1"],
     },
     {
       title: "Language & Markup",
-      tags: ["TypeScript", "HTML5", "CSS3", "JavaScript"],
+      tags: ["TypeScript", "JavaScript", "HTML5", "CSS3", "Pug"],
     },
     {
-      title: "Styling",
-      tags: ["Tailwind CSS"],
+      title: "Styling & Layout",
+      tags: ["Tailwind CSS", "Responsive Design", "Cross-browser Layout"],
     },
     {
-      title: "UI & Icons",
-      tags: ["Lucide React", "shadcn/ui", "Framer Motion"],
+      title: "Backend & APIs",
+      tags: ["Node.js", "JSON API", "PostgreSQL"],
     },
     {
-      title: "Routing & Navigation",
-      tags: ["Anchor navigation (SPA)"],
+      title: "AI Tools",
+      tags: ["Claude", "ChatGPT"],
     },
     {
-      title: "Tooling",
-      tags: ["npm", "ESLint", "Webpack", "Vite", "Git", "Github", "Docker", "Node.js", "Vercel", "PostgreSQL"],
+      title: "Tooling & DevOps",
+      tags: ["Git", "GitHub", "npm", "ESLint", "Gulp", "Docker", "Linux", "Vercel"],
     },
   ];
 
@@ -529,7 +529,7 @@ function ContactSection() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const to = "mirzamatov.arthur@example.com"; // поменяешь на свой реальный
+    const to = "mir-hank@yandex.ru";
     const subject = form.subject?.trim() || "Message from portfolio";
     const bodyLines = [
       `Name: ${form.name}`,
@@ -575,12 +575,17 @@ function ContactSection() {
               <ContactRow
                 icon={<Phone size={18} />}
                 label="Phone"
-                value="+7 (XXX) XXX-XX-XX"
+                value="+998 (70) 195-33-39"
+              />
+              <ContactRow
+                icon={<Send size={18} />}
+                label="Telegram"
+                value="@vktdrkstdt"
               />
               <ContactRow
                 icon={<MapPin size={18} />}
                 label="Location"
-                value="Moscow, Russia"
+                value="Tashkent, Uzbekistan"
               />
             </div>
           </div>
@@ -723,8 +728,8 @@ function ExperienceSection() {
 const items: ExperienceItem[] = [
   {
     role: "Team Lead & Founder",
-    company: "FPZH.uz (Own Startup)",
-    period: "2025 - 2026",
+    company: "FPZH.uz — Фонд Помощи Животным (Own Startup)",
+    period: "Jul 2025 — Present",
     description:
       "Founded and led a 4-person development team to create a full-stack web application. Managed project timeline, coordinated team members, and served as supreme frontend developer while overseeing the entire development process.",
     achievements: [
@@ -738,8 +743,8 @@ const items: ExperienceItem[] = [
   },
   {
     role: "Frontend Developer (NDA Project)",
-    company: "Confidential Product",
-    period: "2024 - 2025",
+    company: "Okna v Tsvet LLC, Moscow",
+    period: "Aug 2024 — Jul 2025",
     description:
       "Worked on a commercial web platform under NDA, contributing to frontend architecture and feature development in a cross-functional team. Collaborated closely with backend engineers and designers to deliver production-ready features and improve overall system performance.",
     achievements: [
